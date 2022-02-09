@@ -19,5 +19,8 @@ public class NespressoService {
 		return this.repo.save(Nes);
 	}
 	
-	
+	//read method 
+    public Nespresso getByIDNespresso(Long id) {
+		return this.repo.getById(id);
+		}
 }
