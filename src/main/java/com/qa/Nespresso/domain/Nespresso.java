@@ -1,5 +1,7 @@
 package com.qa.Nespresso.domain;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -99,7 +101,26 @@ public class Nespresso {
 	public void setRoastiness(String roastiness) {
 		this.roastiness = roastiness;
 	}
-	
+ 
+	//added hasCode and equal
+	@Override
+	public int hashCode() {
+		return Objects.hash(aroma, id, intensity, name, roastiness, type);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Nespresso other = (Nespresso) obj;
+		return Objects.equals(aroma, other.aroma) && Objects.equals(id, other.id) && intensity == other.intensity
+				&& Objects.equals(name, other.name) && Objects.equals(roastiness, other.roastiness)
+				&& Objects.equals(type, other.type);
+	}
 	
 	
 }
