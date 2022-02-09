@@ -4,6 +4,7 @@ package com.qa.Nespresso.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,7 +35,11 @@ public class NespressoController {
 		return this.s.getByIDNespresso(id);	
 	}
 		
-		
+   //update method 
+	@PutMapping("/updateOne/{id}")
+	public Nespresso updateNespresso(@PathVariable Long CoffeeId, @RequestBody Nespresso Nes) {
+		return this.s.updateNespresso(CoffeeId, Nes);
+	}
 }
 	
 
