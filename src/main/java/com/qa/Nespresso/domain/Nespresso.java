@@ -50,6 +50,56 @@ public class Nespresso {
 		this.aroma = aroma;
 		this.roastiness = roastiness;
 	}
+
+	//added the getter and setters
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public int getIntensity() {
+		return intensity;
+	}
+
+	public void setIntensity(int intensity) {
+		this.intensity = intensity;
+	}
+
+	public String getAroma() {
+		return aroma;
+	}
+
+	public void setAroma(String aroma) {
+		this.aroma = aroma;
+	}
+
+	public String getRoastiness() {
+		return roastiness;
+	}
+
+	public void setRoastiness(String roastiness) {
+		this.roastiness = roastiness;
+	}
+	
 	
 	
 }
