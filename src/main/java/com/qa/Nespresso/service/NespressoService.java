@@ -2,6 +2,7 @@ package com.qa.Nespresso.service;
 
 import org.springframework.stereotype.Service;
 
+import com.qa.Nespresso.domain.Nespresso;
 import com.qa.Nespresso.repo.NespressoRepo;
 
 @Service
@@ -13,4 +14,10 @@ public class NespressoService {
 		this.repo = repo;
 	}
 
+	// create method 
+	public Nespresso createNespresso(Nespresso Nes) {
+		return this.repo.save(Nes);
+	}
+	
+	
 }
