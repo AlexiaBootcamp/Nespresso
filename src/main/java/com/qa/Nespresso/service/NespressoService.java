@@ -27,7 +27,7 @@ public class NespressoService {
 		}
     
      //update method 
-    public Nespresso updateNespresso(Long CoffeeId, Nespresso Nes) {
+    public Nespresso updateNespresso(Long id, Nespresso Nes) {
 		Optional<Nespresso>optionalNespresso=this.repo.findById(id);
 		if (optionalNespresso.isPresent()) {
 			Nespresso existingNespresso=optionalNespresso.get();
@@ -40,5 +40,12 @@ public class NespressoService {
 		} else {
 			return null;	
 		}
+	
+		//delete method 
+		public  boolean deleteNespresso(Long id) {
+			Optional<Nespresso> toDelete=this.repo.findById(id);
+			this.repo.deleteById(id);
+			return toDelete.orElse(null);
+			}
     }
 }
