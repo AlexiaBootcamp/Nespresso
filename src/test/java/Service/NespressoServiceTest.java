@@ -68,6 +68,15 @@ public class NespressoServiceTest {
 		///System.out.println("update");		
 	}
 	
+	@Test
+	void testDelete() {
+		//given-id, object
+		Long id = 1L;
+		//new Nes to update
+		Nespresso toUpdate = new Nespresso("Roma","espresso",6,"fruity","dark");
+		
+		///System.out.println("update");		
+	}
 	
 }
 
