@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import com.qa.Nespresso.domain.Nespresso;
 import com.qa.Nespresso.repo.NespressoRepo;
 import com.qa.Nespresso.service.NespressoService;
 
@@ -57,5 +58,16 @@ public class NespressoServiceTest {
 		
 	}
 	
+	@Test
+	void testUpdate() {
+		//given-id, object
+		Long id = 1L;
+		//new Nes to update
+		Nespresso toUpdate = new Nespresso("roma","espresso",7,"fruity","dark");
+		
+		///System.out.println("update");		
+	}
+	
 	
 }
+
