@@ -1,5 +1,6 @@
 package com.qa.Nespresso.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -23,9 +24,10 @@ public class NespressoService {
 
 	// read method
 	public Nespresso getByIDNespresso(Long id) {
-		return this.repo.getById(id);
+		Optional<Nespresso> get = this.repo.findById(id);
+		return get.orElse(null);
 	}
-
+ 
 	// update method
 	public Nespresso updateNespresso(Long id, Nespresso Nes) {
 		Optional<Nespresso> optionalNespresso = this.repo.findById(id);
@@ -33,8 +35,8 @@ public class NespressoService {
 			Nespresso existingNespresso = optionalNespresso.get();
 			existingNespresso.setName(Nes.getName());
 			existingNespresso.setType(Nes.getType());
-			existingNespresso.setAroma(Nes.getAroma());
 			existingNespresso.setIntensity(Nes.getIntensity());
+			existingNespresso.setAroma(Nes.getAroma());
 			existingNespresso.setRoastiness(Nes.getRoastiness());
 			return this.repo.save(existingNespresso);
 		} else {
@@ -42,10 +44,14 @@ public class NespressoService {
 		}
 	}
 
+	//read all method 
+	public List<Nespresso> readAllNespresso() {
+		return this.repo.findAll();
+	}
+	
 	// delete method
-	public Nespresso deleteNespresso(Long id) {
-		Optional<Nespresso> toDelete = this.repo.findById(id);
+	public boolean deleteNespresso(Long id) {
 		this.repo.deleteById(id);
-		return toDelete.orElse(null);
+		return !this.repo.existsById(id);
 	}
 }

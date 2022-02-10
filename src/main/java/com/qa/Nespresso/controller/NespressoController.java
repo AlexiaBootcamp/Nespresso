@@ -1,5 +1,7 @@
 package com.qa.Nespresso.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,17 +36,23 @@ public class NespressoController {
 	public Nespresso getByIdNespresso(@PathVariable Long id) {
 		return this.s.getByIDNespresso(id);	
 	}
-		
+	
+	//read all method 
+	@GetMapping("/getAll")
+	public  List<Nespresso> getAll() {
+	return this.s.readAllNespresso();
+	}
+	
    //update method 
 	@PutMapping("/updateOne/{id}")
 	public Nespresso updateNespresso(@PathVariable Long id, @RequestBody Nespresso Nes) {
 		return this.s.updateNespresso(id, Nes);
 	}
 	
-	
+
 	//delete method 
 	@DeleteMapping("/remove/{id}")
-	public Nespresso deleteNespresso(Long id) {
+	public boolean deleteNespresso(@PathVariable Long id) {
 		return this.s.deleteNespresso(id);
 	}
 	
