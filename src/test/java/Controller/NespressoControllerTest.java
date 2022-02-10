@@ -1,5 +1,6 @@
 package Controller;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -58,5 +59,30 @@ public class NespressoControllerTest {
 		this.mock.perform(mockRequest).andExpect(matchStatus).andExpect(matchBody);
 		
 	}
-
+	
+	@Test
+	void TestUpdateCont() throws Exception {
+		//create a nespresso
+		Nespresso newNes = new Nespresso("colomia","espresso",6,"woody","medium");
+		//convert into JSON string
+		String newCJSON = this.map.writeValueAsString(newNes);
+		//build the mock request
+		RequestBuilder mockRequest = get("/updateNespresso").contentType(MediaType.APPLICATION_JSON).content(newCJSON);
+		
+		///-----response
+		Nespresso savedC = new Nespresso("colombia","espresso",6,"woody","medium");
+		///already inserted one record online
+		//convert to JSON
+		String savedCJSON = this.map.writeValueAsString(savedNes);
+		
+		//test response(status and body)
+		//test status equals 201 created
+		ResultMatcher matchStatus = status().isCreated();
+		//test response body
+		ResultMatcher matchBody = content().json(savedCJSON);
+		
+		
+		//perform the test
+		this.mock.perform(mockRequest).andExpect(matchStatus).andExpect(matchBody);
+	}
 }
