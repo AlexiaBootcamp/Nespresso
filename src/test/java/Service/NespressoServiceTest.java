@@ -42,5 +42,20 @@ public class NespressoServiceTest {
 		
 	}
 	
+	@Test
+	void testread() {
+		//System.out.println("create");	
+		//given
+		//testing data
+		
+		//when
+		Mockito.when(this.repo.save(newNes).thenReturn(savedNes);
+		//then
+		assertThat(this.service.read(newNes)).isEqualTo(savedNes);
+		//verify
+		Mockito.verify(this.repo, Mockito.times(1)).save(newNes);
+		
+	}
+	
 	
 }
