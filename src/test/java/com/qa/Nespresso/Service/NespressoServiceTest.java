@@ -10,12 +10,14 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ActiveProfiles;
 
 import com.qa.Nespresso.domain.Nespresso;
 import com.qa.Nespresso.repo.NespressoRepo;
 import com.qa.Nespresso.service.NespressoService;
 
 @SpringBootTest
+@ActiveProfiles("test")
 public class NespressoServiceTest {
 	
 	@Autowired
