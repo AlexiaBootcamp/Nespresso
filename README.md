@@ -1,3 +1,3 @@
 #Nespresso
 
-![Postman screenshot](Screenshots/PostmanDelete(requestid2).png)
+![Postman screenshot](./Screenshots/PostmanDelete(requestid2).png)
