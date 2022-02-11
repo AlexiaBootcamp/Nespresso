@@ -1,0 +1,1 @@
+Insert into `nespresso` (`name`,`type`,`intensity`,`aroma`,`roastiness`) VALUES ('colombia','espresso',6,'woody','medium');
